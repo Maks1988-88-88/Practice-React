@@ -1,0 +1,10 @@
+.Post {
+    width: 600px;
+}
+
+.Post__img {
+    display: block;
+    width: 100px;
+    height: 100px;
+
+}
