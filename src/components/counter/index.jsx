@@ -9,6 +9,7 @@ export default class Counter extends React.Component {
     super();
     // this._handleClick = this._handleClick.bind(this); // c обычной функцией надо делать
     this.state = {
+      isActiveTimer: false,
       counterValue: 0,
       timerValue: 0
     };
@@ -16,26 +17,30 @@ export default class Counter extends React.Component {
 
   _handleClick = evt => {
     const target = evt.target;
-    console.log(target);
-    console.log(this);
+    // console.log(target);
+    // console.log(this);
     this.setState(prevState => ({
       counterValue: this.state.counterValue + 1
     }));
   };
 
   _statrTimer = () => {
-    this.counterID = setInterval(() => {
-      this.setState(prevState => ({
-        timerValue: this.state.timerValue + 1
-      }));
-    }, 500);
+    if (!this.state.isActiveTimer) {
+      this.setState({ isActiveTimer: true });
+      this.counterID = setInterval(() => {
+        this.setState(prevState => ({
+          timerValue: this.state.timerValue + 1
+        }));
+      }, 500);
+    }
   };
 
   _stopTimer = () => {
-    clearInterval(this.counterID);
-    this.setState({
-      timerValue: 0
-    });
+      this.setState({ isActiveTimer: false });
+      clearInterval(this.counterID);
+      this.setState({
+        timerValue: 0
+      });
   };
 
   render() {
