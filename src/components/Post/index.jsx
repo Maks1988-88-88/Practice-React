@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Post.css';
-import userPic from './userpic.png';
+import './style.css';
+import userPic from '../userpic.png';
 
 console.log(userPic);
 
 class Post extends React.Component {
     render() {
-        console.log(this.props);  
+        // console.log(this.props);  
         const { user: name, text, date } = this.props;
         return <div className="Post">
             <img src={userPic} alt="" className="Post__img" />

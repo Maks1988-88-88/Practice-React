@@ -1,8 +1,8 @@
 import React from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 
 export default class Toggler extends React.Component {
-  static PropTypes = {};
+  // static PropTypes = {};
 
   state = {
     isVisible: true

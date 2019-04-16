@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "./Header";
-import Post from "./Post";
-import Logo from "./logo";
+import Header from "./Header/index";
+import Post from "./Post/index";
+import Logo from "./logo/index";
 import post from "../post";
 import Counter from "./counter";
 import Toggler from "./toggler";
@@ -52,8 +52,8 @@ class App extends React.Component {
           <Logo />
         </Header>
         <Counter
-          ocCounterClick={() => {
-             console.log("click!");
+          onCounterClick={() => {
+            console.log("click!");
           }}
         />
         <Toggler />

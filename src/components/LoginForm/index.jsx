@@ -1,8 +1,8 @@
 import React from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 
 export default class LoginForm extends React.Component {
-  static PropTypes = {};
+  // static PropTypes = {};
 
   state = {
     loginInptValue: "",
@@ -29,7 +29,13 @@ export default class LoginForm extends React.Component {
       login: this.state.loginInptValue,
       pass: this.state.passInpValue
     };
+    this.setState({
+      loginInptValue: "",
+      passInpValue: ""
+    });
     console.log(JSON.stringify(userData));
+    alert(JSON.stringify(userData));
+
   };
 
   render() {

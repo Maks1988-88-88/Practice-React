@@ -1,9 +1,9 @@
 import React from 'react';
 // import Logo from './logo';
-import './Header.css';
+import './style.css';
 
 
-class Header extends React.Component {
+export default class Header extends React.Component {
     render() {
         const {text} = this.props;
         return <header className="Header">
@@ -15,4 +15,4 @@ class Header extends React.Component {
     }
 }
 
-export default Header;
+ 
