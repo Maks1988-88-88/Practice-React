@@ -1,14 +1,14 @@
 import React from "react";
 import Header from "./Header/index";
 import Post from "./Post/index";
-import Logo from "./logo/index";
+import Logo from "./Logo";
 import post from "../post";
-import Counter from "./counter";
-import Toggler from "./toggler";
+import Counter from "./Counter";
+import Toggler from "./Toggler/index";
 import LoginForm from "./LoginForm";
 import AddtodoForm from "./AddtodoForm";
 import v4 from "uuid/v4";
-// import TodoTodo from "./TodoTodo";
+import TodoList from "./TodoList";
 
 console.log(post);
 
@@ -27,15 +27,15 @@ class App extends React.Component {
     });
   };
 
-  // onDeleTodo = id => {
-  //   console.log(id);
-  //   this.setState({
-  //     todos: this.state.todos.filter(todo => todo.id !== id)
-  //   });
-  // }
+  onDeleteTodo = id => {
+    console.log(id);
+    this.setState({
+      todos: this.state.todos.filter(todo => todo.id !== id)
+    });
+  }
 
   render() {
-    // const { todos } = this.state;
+    const { todos } = this.state;
     const listItems = {
       "001": { id: "001", text: "qwer" },
       "002": { id: "002", text: "qwer2" }
@@ -59,10 +59,14 @@ class App extends React.Component {
         <Toggler />
         <LoginForm />
         <AddtodoForm onFormSubmit={this.onAddTodo} />
-        {/* <TodoTodo todos={todos} /> */}
-        <p>{JSON.stringify(this.state.todos)}</p>
+        <TodoList todos={todos} onTodoClick={this.onDeleteTodo} />
+        {/* <p>{JSON.stringify(this.state.todos)}</p> */}
 
-        <Post user="Poly" date="05-12-2017" text="Mamxsa 213 mdsa  213m 12" />
+        <Post
+          user="Poly"
+          date="05-12-2017"
+          text="Mamxsa 213 mdsa  213m 12"
+        />
         <Post user={post.user} date={post.date} text={post.text} />
         <Post {...post} />
         <ul>{items}</ul>

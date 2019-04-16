@@ -1,25 +1,26 @@
 import React from "react";
 import PropTypes from "prop-types";
-import delTo from "../delTo";
+import Todo from "../Todo";
 
-export default class TodoTodo extends React.Component {
+export default class TodoList extends React.Component {
   static PropTypes = {
     todos: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.string.isRequired,
         text: PropTypes.string.isRequired
       }).isRequired
-    ).isRequired
+    ).isRequired,
+    onTodoClick: PropTypes.func.isRequired
   };
   render() {
     const { todos, onTodoClick } = this.props;
     return (
       <div>
         {todos.map(t => (
-          <delTo
-            key={t.id}
+          <Todo
             text={t.text}
-            ocClick={() => {
+            key={t.id}
+            onClick={() => {
               onTodoClick(t.id);
             }}
           />
