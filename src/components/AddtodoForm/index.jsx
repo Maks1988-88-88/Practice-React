@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 export default class AddtodoForm extends React.Component {
-  static PropTypes = {
+  static propTypes = {
     onFormSubmit: PropTypes.func.isRequired
   };
   state = {
@@ -19,11 +19,20 @@ export default class AddtodoForm extends React.Component {
     evt.preventDefault();
     this.props.onFormSubmit(this.state.inputValue);
     this.setState({
-      inputValue:''
+      inputValue: ""
     });
   };
 
+  componentWillMount() {
+    console.log("[AddtodoForm.jsx], componentWillMount");
+  }
+
+  componentDidMount() {
+    console.log("[AddtodoForm.jsx], componentDidMount");
+  }
+
   render() {
+    console.log("[AddtodoForm.jsx], render()");
     const { inputValue } = this.state;
     return (
       <form onSubmit={this._handleSubmit}>

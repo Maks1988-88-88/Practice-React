@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Todo from "../Todo";
 
 export default class TodoList extends React.Component {
-  static PropTypes = {
+  static propTypes = {
     todos: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.string.isRequired,

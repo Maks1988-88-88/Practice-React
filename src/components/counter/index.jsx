@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 export default class Counter extends React.Component {
-  static PropTypes = {
+  static propTypes = {
     onCounterClick: PropTypes.func.isRequired
   };
   constructor() {

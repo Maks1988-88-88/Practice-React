@@ -9,6 +9,7 @@ import LoginForm from "./LoginForm";
 import AddtodoForm from "./AddtodoForm";
 import v4 from "uuid/v4";
 import TodoList from "./TodoList";
+import GalleryContainer from "./GalleryContainer/index";
 
 console.log(post);
 
@@ -48,6 +49,7 @@ class App extends React.Component {
 
     return (
       <div>
+        <GalleryContainer />
         <Header text="Social book">
           <Logo />
         </Header>
@@ -61,7 +63,6 @@ class App extends React.Component {
         <AddtodoForm onFormSubmit={this.onAddTodo} />
         <TodoList todos={todos} onTodoClick={this.onDeleteTodo} />
         {/* <p>{JSON.stringify(this.state.todos)}</p> */}
-
         <Post
           user="Poly"
           date="05-12-2017"
