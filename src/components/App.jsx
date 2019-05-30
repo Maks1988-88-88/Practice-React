@@ -10,8 +10,28 @@ import AddtodoForm from "./AddtodoForm";
 import v4 from "uuid/v4";
 import TodoList from "./TodoList";
 import GalleryContainer from "./GalleryContainer/index";
+import { Route, Switch, Redirect, Link } from "react-router-dom";
+import Nav from "./Nav";
+import Abou from "./Pages/About";
+import Home from "./Pages/Home";
+import Users from "./Pages/Users";
 
 console.log(post);
+
+const navLinks = [
+  {
+    path: "/",
+    text: "home"
+  },
+  {
+    path: "/about",
+    text: "about"
+  },
+  {
+    path: "/user",
+    text: "user"
+  }
+];
 
 class App extends React.Component {
   state = {
@@ -33,7 +53,7 @@ class App extends React.Component {
     this.setState({
       todos: this.state.todos.filter(todo => todo.id !== id)
     });
-  }
+  };
 
   render() {
     const { todos } = this.state;
@@ -49,6 +69,22 @@ class App extends React.Component {
 
     return (
       <div>
+        <div>
+          <h1>App component Router</h1>
+          <Nav items={navLinks} />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/about" component={Abou} />
+            <Route path="/user" component={Users} />
+
+            {/* <Route exact path="/" render={() => <h2>Home page</h2>} /> */}
+            {/* <Route path="/about" render={() => <h2>About page</h2>} /> */}
+            {/* <Route path="/user" render={() => <h2>User page</h2>} /> */}
+            {/* <Route render={() => <h2>404 page not found</h2>} /> */}
+            <Redirect to="/" />
+          </Switch>
+        </div>
+
         <GalleryContainer />
         <Header text="Social book">
           <Logo />
@@ -63,11 +99,7 @@ class App extends React.Component {
         <AddtodoForm onFormSubmit={this.onAddTodo} />
         <TodoList todos={todos} onTodoClick={this.onDeleteTodo} />
         {/* <p>{JSON.stringify(this.state.todos)}</p> */}
-        <Post
-          user="Poly"
-          date="05-12-2017"
-          text="Mamxsa 213 mdsa  213m 12"
-        />
+        <Post user="Poly" date="05-12-2017" text="Mamxsa 213 mdsa  213m 12" />
         <Post user={post.user} date={post.date} text={post.text} />
         <Post {...post} />
         <ul>{items}</ul>

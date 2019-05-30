@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Gallery from "../Gallery";
 import SearchForm from "../SearchForm";
-// import {fetchData} from 'API'
+// import {fetchData} from '../../API';
 
 class GalleryContainer extends Component {
   state = {
@@ -38,13 +38,13 @@ class GalleryContainer extends Component {
       .catch(err => console.error(err));
   };
 
-  //   handleFormSubmit = query => {
-  //     fetchData(query).then(data => {
-  //       this.setState({
-  //         galletyItems: data
-  //       });
-  //     });
-  //   };
+    // handleFormSubmit = query => {
+    //   fetchData(query).then(data => {
+    //     this.setState({
+    //       galletyItems: data
+    //     });
+    //   });
+    // };
 
 //   componentWillMount = query => {
 //     fetchData('cat').then(data => {
