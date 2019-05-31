@@ -12,7 +12,7 @@ import TodoList from "./TodoList";
 import GalleryContainer from "./GalleryContainer/index";
 import { Route, Switch, Redirect, Link } from "react-router-dom";
 import Nav from "./Nav";
-import Abou from "./Pages/About";
+import About from "./Pages/About";
 import Home from "./Pages/Home";
 import Users from "./Pages/Users";
 
@@ -74,7 +74,7 @@ class App extends React.Component {
           <Nav items={navLinks} />
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route path="/about" component={Abou} />
+            <Route path="/about" component={About} />
             <Route path="/user" component={Users} />
 
             {/* <Route exact path="/" render={() => <h2>Home page</h2>} /> */}
@@ -99,7 +99,11 @@ class App extends React.Component {
         <AddtodoForm onFormSubmit={this.onAddTodo} />
         <TodoList todos={todos} onTodoClick={this.onDeleteTodo} />
         {/* <p>{JSON.stringify(this.state.todos)}</p> */}
-        <Post user="Poly" date="05-12-2017" text="Mamxsa 213 mdsa  213m 12" />
+        <Post
+          user="Poly"
+          date="05-12-2017"
+          text="Mamxsa 213 mdsa  213m 12"
+        />
         <Post user={post.user} date={post.date} text={post.text} />
         <Post {...post} />
         <ul>{items}</ul>
